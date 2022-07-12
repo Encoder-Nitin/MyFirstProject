@@ -1,0 +1,24 @@
+<div class="comtainer">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>MY APP </h1>
+            <hr>
+            <label>Username</label>
+            <input type="text"
+            class="form-control"
+            [(ngModel)]="username">
+            <!-- <p> {{username}}</p> -->
+
+            <button class="btn btn-primary"
+            [disabled]="username === ''"
+            (click)="onWarningCreation()"
+            >Show warning</button>
+
+            <p *ngIf="alert; else noWarning">There is a warning,the warning is {{username}} </p>
+            <ng-template #noWarning>
+                <p>there is no warning</p>
+            </ng-template> 
+        </div>
+    </div>
+</div>
+<app-server *ngFor="let warn of warners"></app-server>
